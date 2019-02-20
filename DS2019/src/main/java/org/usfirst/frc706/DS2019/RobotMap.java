@@ -10,6 +10,8 @@ public class RobotMap {
     public static TalonSRX chassisLeftDriveOne, chassisLeftDriveTwo;
     public static TalonSRX chassisRightDriveOne, chassisRightDriveTwo;
     public static TalonSRX elevatorTalon;
+    public static TalonSRX drawerTalon;
+    public static TalonSRX rampHigh, rampLow; 
 
     public static Compressor comp;
 
@@ -24,7 +26,10 @@ public class RobotMap {
 
         elevatorTalon = new TalonSRX(Constants.Elevator.ELEVATOR);
 
+        //drawerTalon = new TalonSRX(Constants.Intake.DRAWER);
 
+        //rampHigh = new TalonSRX(Constants.Ramp.RAMP_HIGH);
+        //rampLow = new TalonSRX(Constants.Ramp.RAMP_LOW);
 
         comp = new Compressor(0);
         //comp.setClosedLoopControl(true);

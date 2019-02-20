@@ -28,6 +28,11 @@ public final class Constants {
 		public static final int ELEVATOR = 5;
 	}
 
+	public class Intake {
+		// CAN IDs
+		public static final int DRAWER = 0;
+	}
+
 	public class Ramp {
 		// CAN IDs
 		public static final int RAMP_HIGH = 0;

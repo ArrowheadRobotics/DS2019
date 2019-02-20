@@ -2,6 +2,7 @@ package org.usfirst.frc706.DS2019;
 
 import org.usfirst.frc706.DS2019.subsystems.Chassis;
 import org.usfirst.frc706.DS2019.subsystems.Elevator;
+import org.usfirst.frc706.DS2019.subsystems.Ramp;
 
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 
@@ -28,6 +29,7 @@ public class Robot extends TimedRobot {
 	public static OI oi;
 	public static Chassis chassis;
 	public static Elevator elevator;
+	//public static Ramp ramp;
 	public static boolean auto;
 	public static DriverStation driverStation;
 	public static SmartDashboard dashboard;

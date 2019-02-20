@@ -10,15 +10,13 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 
 import org.usfirst.frc706.DS2019.Robot;
+import org.usfirst.frc706.DS2019.subsystems.*;
 
-import org.usfirst.frc706.DS2019.subsystems.Chassis;
-import org.usfirst.frc706.DS2019.subsystems.Elevator;
-
-public class RunElevator extends Command {
+public class DeployRamp extends Command {
   int stepsToTake;
 
-  public RunElevator() {
-    requires(Robot.elevator);
+  public DeployRamp() {
+    requires(Robot.ramp);
     requires(Robot.chassis);
   }
 
@@ -26,7 +24,7 @@ public class RunElevator extends Command {
   }
 
   protected void execute() {
-    Elevator.runElevator(0.5);
+    Ramp.runRamp(0.5);
   }
 
   protected boolean isFinished() {
