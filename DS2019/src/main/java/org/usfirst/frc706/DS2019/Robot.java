@@ -1,6 +1,5 @@
 package org.usfirst.frc706.DS2019;
 
-
 import org.usfirst.frc706.DS2019.subsystems.Chassis;
 import org.usfirst.frc706.DS2019.subsystems.Elevator;
 
@@ -43,16 +42,18 @@ public class Robot extends TimedRobot {
 		oi = new OI();
 		driverStation = DriverStation.getInstance();
 		auto = driverStation.isAutonomous();
-		camera = CameraServer.getInstance().startAutomaticCapture("Drivercamera",0);
+		camera = CameraServer.getInstance().startAutomaticCapture("Drivercamera", 0);
 		camera.setFPS(30);
-/* 		_talon = RobotMap.chassisrightDriveOne;
-		_talon.setStatusFramePeriod(StatusFrameEnhanced.Status_2_Feedback0, 1);
-		RobotMap.chassisrightDriveOne.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
-				_plotThread = new PlotThread(this);
-		new Thread(_plotThread).start(); */
+		/*
+		 * _talon = RobotMap.chassisrightDriveOne;
+		 * _talon.setStatusFramePeriod(StatusFrameEnhanced.Status_2_Feedback0, 1);
+		 * RobotMap.chassisrightDriveOne.configSelectedFeedbackSensor(FeedbackDevice.
+		 * CTRE_MagEncoder_Relative); _plotThread = new PlotThread(this); new
+		 * Thread(_plotThread).start();
+		 */
 	}
 
-		class PlotThread implements Runnable {
+	class PlotThread implements Runnable {
 		Robot robot;
 
 		public PlotThread(Robot robot) {
@@ -61,8 +62,8 @@ public class Robot extends TimedRobot {
 
 		public void run() {
 			/**
-			 * Speed up network tables, this is a test project so eat up all of
-			 * the network possible for the purpose of this test.
+			 * Speed up network tables, this is a test project so eat up all of the network
+			 * possible for the purpose of this test.
 			 */
 
 			while (true) {

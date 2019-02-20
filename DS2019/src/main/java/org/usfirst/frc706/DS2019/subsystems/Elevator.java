@@ -18,8 +18,7 @@ public class Elevator extends Subsystem {
 
     public void periodic() {}
 	
-	public static void percentPower(double percent) {
-
+	public static void runElevator(double percent) {
         elevatorTalon.set(ControlMode.PercentOutput,percent);
     }
 }

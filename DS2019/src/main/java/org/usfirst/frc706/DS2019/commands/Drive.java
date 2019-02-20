@@ -1,4 +1,5 @@
 package org.usfirst.frc706.DS2019.commands;
+
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -22,7 +23,6 @@ public class Drive extends Command {
 	
     public Drive() {
 		requires(Robot.chassis);
-		requires(Robot.elevator);
     }
     
     protected void initialize() {
