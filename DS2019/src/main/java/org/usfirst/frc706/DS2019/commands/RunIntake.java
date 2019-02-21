@@ -13,6 +13,7 @@ import org.usfirst.frc706.DS2019.Robot;
 
 import org.usfirst.frc706.DS2019.subsystems.Chassis;
 import org.usfirst.frc706.DS2019.subsystems.Elevator;
+import org.usfirst.frc706.DS2019.subsystems.Intake;
 
 public class RunIntake extends Command {
   int stepsToTake;
@@ -26,7 +27,7 @@ public class RunIntake extends Command {
   }
 
   protected void execute() {
-    Elevator.runElevator(0.5);
+    Intake.runDrawerMotor(0.5);
   }
 
   protected boolean isFinished() {
