@@ -24,7 +24,7 @@ public class DeployRamp extends Command {
   }
 
   protected void execute() {
-    Ramp.runRamp(0.5);
+    Robot.ramp.runRamp(0.5);
   }
 
   protected boolean isFinished() {

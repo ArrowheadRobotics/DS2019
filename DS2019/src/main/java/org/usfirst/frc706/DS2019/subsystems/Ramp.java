@@ -19,7 +19,7 @@ public class Ramp extends Subsystem {
 
     public void periodic() {}
 	
-	public static void runRamp(double percent) {
+	public void runRamp(double percent) {
         rampHigh.set(ControlMode.PercentOutput,percent);
         rampLow.set(ControlMode.PercentOutput,percent);
     }

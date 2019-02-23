@@ -50,7 +50,7 @@ public class Chassis extends Subsystem {
 
 	}
 
-	public static void mecanumMove(double x, double y, double rotation) {
+	public void mecanumMove(double x, double y, double rotation) {
 
 		// xspeed and yspeed are just x and y of right joystick
 		// rotation is x of left joystick

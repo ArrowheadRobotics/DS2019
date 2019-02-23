@@ -26,6 +26,14 @@ public final class Constants {
 	public class Elevator {
 		// CAN IDs
 		public static final int ELEVATOR = 5;
+
+		// Encoder counts
+		public static final int ELEVATOR_LOW = 0;
+		public static final int ELEVATOR_MID = 0;
+		public static final int ELEVATOR_HIGH = 0;
+
+		// Speed
+		public static final int ELEVATOR_SPEED = 0;
 	}
 
 	public class Intake {

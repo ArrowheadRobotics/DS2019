@@ -27,7 +27,7 @@ public class RunIntake extends Command {
   }
 
   protected void execute() {
-    Intake.runDrawerMotor(0.5);
+    Robot.intake.runDrawerMotor(0.5);
   }
 
   protected boolean isFinished() {

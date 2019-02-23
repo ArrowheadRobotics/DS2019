@@ -18,7 +18,7 @@ public class Intake extends Subsystem {
 
     public void periodic() {}
 	
-	public static void runDrawerMotor(double percent) {
+	public void runDrawerMotor(double percent) {
         drawerTalon.set(ControlMode.PercentOutput,percent);
     }
 }
