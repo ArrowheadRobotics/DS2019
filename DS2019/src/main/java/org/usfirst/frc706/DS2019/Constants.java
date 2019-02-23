@@ -32,13 +32,32 @@ public final class Constants {
 		public static final int ELEVATOR_MID = 0;
 		public static final int ELEVATOR_HIGH = 0;
 
-		// Speed
-		public static final int ELEVATOR_SPEED = 0;
+		// PID
+		public static final int ELEVATOR_HOLD_SLOT = 0;
+		public static final int ELEVATOR_MOVE_SLOT = 1;
+		public static final double ELEVATOR_MAX_SPEED = 0.2;
+
+		public static final double ELEVATOR_HOLD_KP = 0;
+		public static final double ELEVATOR_HOLD_KD = 0;
+		public static final double ELEVATOR_HOLD_KI = 0;
+
+		public static final double ELEVATOR_MOVE_KP = 0;
+		public static final double ELEVATOR_MOVE_KD = 0;
+		public static final double ELEVATOR_MOVE_KI = 0;
 	}
 
 	public class Intake {
 		// CAN IDs
 		public static final int DRAWER = 0;
+		public static final int COMPRESSOR = 0;
+
+		// Encoder Counts
+		public static final int DRAWER_OUT = 0;
+		public static final int DRAWER_IN = 0;
+
+		// PID
+		public static final int DRAWER_SLOT = 0;
+		public static final double DRAWER_MAX_SPEED = 0;
 	}
 
 	public class Ramp {

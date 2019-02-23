@@ -16,7 +16,10 @@ import org.usfirst.frc706.DS2019.subsystems.Elevator;
 import org.usfirst.frc706.DS2019.subsystems.Intake;
 
 public class RunIntake extends Command {
-  int stepsToTake;
+  boolean isDrawerOut = false;
+
+  boolean aPressed = false;
+  boolean yPressed = false;
 
   public RunIntake() {
     requires(Robot.intake);
@@ -27,7 +30,27 @@ public class RunIntake extends Command {
   }
 
   protected void execute() {
-    Robot.intake.runDrawerMotor(0.5);
+    // Drawer IN
+    if(Robot.oi.a.get()) {
+      if(!aPressed) {
+        aPressed = true;
+        isDrawerOut = false;
+      }
+    } else {
+      aPressed = false;
+    }
+
+    // Drawer OUT
+    if(Robot.oi.y.get()) {
+      if(!yPressed) {
+        yPressed = true;
+        isDrawerOut = true;
+      }
+    } else {
+      yPressed = false;
+    }
+
+    Robot.intake.setDrawerPosition(isDrawerOut);
   }
 
   protected boolean isFinished() {
