@@ -16,11 +16,11 @@ public final class Constants {
 		public static final double THROTTLE = .3;
 
 		// Driving
-		public static final boolean useXbox = false;
-		public static final boolean loggingEnabled = false;
+		public static final boolean USE_XBOX = false;
+		public static final boolean LOGGING_ENABLED = false;
 
 		// Mecanum Constants
-		public static final double rotationModifier = 0.8;
+		public static final double ROTATION_MODIFIER = 0.8;
 	}
 
 	public class Elevator {

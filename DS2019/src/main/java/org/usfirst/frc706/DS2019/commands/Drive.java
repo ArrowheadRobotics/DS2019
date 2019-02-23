@@ -44,7 +44,7 @@ public class Drive extends Command {
 
 		boolean eckertMode = true;
 
-		if (Constants.Chassis.useXbox) {// pull values from XBox remote
+		if (Constants.Chassis.USE_XBOX) {// pull values from XBox remote
 			YPower = Robot.oi.xbox.getRawAxis(5);
 			XPower = Robot.oi.xbox.getRawAxis(4);
 			rotation = Robot.oi.xbox.getRawAxis(0);

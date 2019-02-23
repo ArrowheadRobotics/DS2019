@@ -89,7 +89,7 @@ public class Chassis extends Subsystem {
 			}
 		}
 
-		rotation *= Constants.Chassis.rotationModifier;
+		rotation *= Constants.Chassis.ROTATION_MODIFIER;
 		double rfd = f - rotation;
 		double rbd = b - rotation;
 		double lfd = b + rotation;
@@ -100,7 +100,7 @@ public class Chassis extends Subsystem {
 		leftDriveOne.set(ControlMode.PercentOutput, lfd * Constants.Chassis.MULTIPLIER);
 		leftDriveTwo.set(ControlMode.PercentOutput, lbd * Constants.Chassis.MULTIPLIER);
 
-		if (Constants.Chassis.loggingEnabled) {
+		if (Constants.Chassis.LOGGING_ENABLED) {
 			SmartDashboard.putNumber("lfd", lfd);
 			SmartDashboard.putNumber("rfd", rfd);
 			SmartDashboard.putNumber("lbd", lbd);
