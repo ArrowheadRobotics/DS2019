@@ -1,60 +1,78 @@
 package org.usfirst.frc706.DS2019.commands;
 
-import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc706.DS2019.Constants;
 import org.usfirst.frc706.DS2019.OI;
-
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-
 import org.usfirst.frc706.DS2019.Robot;
-
-import org.usfirst.frc706.DS2019.subsystems.Chassis;
-import org.usfirst.frc706.DS2019.subsystems.Elevator;
 import org.usfirst.frc706.DS2019.misc.ElevatorPosition;
+import org.usfirst.frc706.DS2019.subsystems.Elevator;
 
 public class RunElevator extends Command {
   ElevatorPosition position = ElevatorPosition.LOW;
 
   boolean upPressed = false;
   boolean downPressed = false;
-  
+  boolean yPressed = false;
+  boolean aPressed = false;
+  boolean xPressed = false;
+
   public RunElevator() {
     requires(Robot.elevator);
-    requires(Robot.chassis);
   }
 
   protected void initialize() {
   }
 
   protected void execute() {
-    /*
+    if (Robot.emergencyDisabled) return;
+
     // UP
-    if(Robot.oi.xbox.getPOV() == 0) {
-      if(!upPressed) {
+    if (OI.xbox.getPOV() == 0) {
+      if (!upPressed) {
         upPressed = true;
-        position = position.increase();
+        Robot.elevator.position = Robot.elevator.position.increase();
       }
-    } else {
+    } else if (upPressed && OI.xbox.getPOV() != 0) {
       upPressed = false;
     }
 
     // DOWN
-    if(Robot.oi.xbox.getPOV() == 180) {
-      if(!downPressed) {
+    if (OI.xbox.getPOV() == 180) {
+      if (!downPressed) {
         downPressed = true;
-        position = position.decrease();
+        Robot.elevator.position = Robot.elevator.position.decrease();
       }
-    } else {
+    } else if (downPressed && OI.xbox.getPOV() != 180) {
       downPressed = false;
     }
 
-    Robot.elevator.setPosition(position);
-    */
+    if (!yPressed && OI.xbox.getYButton()) {
+      Elevator.modifierE -= 200;
+      yPressed = true;
+    } else
+      yPressed = false;
 
-    Robot.elevator.runElevator(0.5);
+    if (!aPressed && OI.xbox.getAButton()) {
+      Elevator.modifierE += 200;
+      aPressed = true;
+    } 
+      aPressed = false;
+
+    if (!xPressed && OI.xbox.getXButton()) {
+      Elevator.grabbingYesOrNo = !Elevator.grabbingYesOrNo;
+      xPressed = true;
+    } else if (xPressed && !OI.xbox.getXButton())
+      xPressed = false;
+
+    SmartDashboard.putBoolean("grabbing", Elevator.grabbingYesOrNo);
+
+    if (!OI.xbox.getRawButton(Constants.OI.RB)) {
+      Robot.elevator.setPosition(Robot.elevator.position);
+    } else {
+      Robot.elevator.runElevator(OI.xbox.getRawAxis(1));
+    }
   }
 
   protected boolean isFinished() {

@@ -4,6 +4,7 @@ public enum ElevatorPosition {
     LOW {
         @Override
         public ElevatorPosition decrease() {
+            //Robot.elevator.modifierE = -800;
             return values()[ordinal()];
         };
     }, 
@@ -11,15 +12,18 @@ public enum ElevatorPosition {
     HIGH {
         @Override
         public ElevatorPosition increase() {
+            //Robot.elevator.modifierE = -800;
             return values()[ordinal()];
         };
     };
 
     public ElevatorPosition increase() {
+        //Robot.elevator.modifierE = -800;
         return values()[ordinal() + 1];
     }
 
     public ElevatorPosition decrease() {
+        //Robot.elevator.modifierE = -800;
         return values()[ordinal() - 1];
     }
 }

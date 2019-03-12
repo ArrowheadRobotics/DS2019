@@ -1,30 +1,22 @@
 package org.usfirst.frc706.DS2019.commands;
 
-import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Command;
-
-import org.usfirst.frc706.DS2019.Constants;
-import org.usfirst.frc706.DS2019.OI;
-
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-
 import org.usfirst.frc706.DS2019.Robot;
-import org.usfirst.frc706.DS2019.subsystems.*;
+import org.usfirst.frc706.DS2019.OI;
 
 public class DeployRamp extends Command {
   int stepsToTake;
 
   public DeployRamp() {
     requires(Robot.ramp);
-    requires(Robot.chassis);
   }
 
   protected void initialize() {
   }
 
   protected void execute() {
-    Robot.ramp.runRamp(0.5);
+    if (Robot.emergencyDisabled) return;
+   Robot.ramp.runRamp(OI.xbox.getRawAxis(2),OI.xbox.getRawAxis(3)); //Control ramps with left and right trigger for up/down
   }
 
   protected boolean isFinished() {
