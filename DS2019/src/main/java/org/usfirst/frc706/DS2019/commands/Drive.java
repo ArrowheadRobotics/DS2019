@@ -5,6 +5,7 @@ import org.usfirst.frc706.DS2019.Constants;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import org.usfirst.frc706.DS2019.Robot;
+import org.usfirst.frc706.DS2019.subsystems.Chassis;
 import org.usfirst.frc706.DS2019.OI;
 
 public class Drive extends Command {
@@ -47,11 +48,12 @@ public class Drive extends Command {
 			else
 				rotation = OI.rightJoy.getZ();
 		}
-
+		if (!Chassis.piInControl) {
 		if (Constants.Chassis.USE_XBOX) //Use deadband for X and Y only if using xbox controller
 		Robot.chassis.mecanumMove(Math.abs(XPower) > Constants.OI.xboxDeadband ? XPower : 0, Math.abs(YPower) > Constants.OI.xboxDeadband ? YPower : 0, rotation); //Send X and Y values to drive if beyond xbox deadband, otherwise send 0 
 		else
 		Robot.chassis.mecanumMove(XPower,YPower, rotation);
+		}
 	}
 	
 

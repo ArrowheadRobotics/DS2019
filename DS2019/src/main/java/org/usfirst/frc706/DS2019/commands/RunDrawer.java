@@ -1,5 +1,6 @@
 package org.usfirst.frc706.DS2019.commands;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc706.DS2019.Robot;
 import org.usfirst.frc706.DS2019.OI;
@@ -15,7 +16,8 @@ public class RunDrawer extends Command {
 
   protected void execute() {
     if (Robot.emergencyDisabled) return;
-    Robot.drawer.runDrawer(OI.xbox.getRawAxis(5)); //Control drawer with right xbox joystick
+    Robot.drawer.runDrawer((Math.abs(OI.xbox.getRawAxis(5))>0.1)?OI.xbox.getRawAxis(5):0.0); //Control drawer with right xbox joystick
+  //DriverStation.reportError("XBOX OUTPUT: " + OI.xbox.getRawAxis(5), false);
   }
 
   protected boolean isFinished() {

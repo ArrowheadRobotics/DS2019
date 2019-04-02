@@ -16,7 +16,7 @@ public class DeployRamp extends Command {
 
   protected void execute() {
     if (Robot.emergencyDisabled) return;
-   Robot.ramp.runRamp(OI.xbox.getRawAxis(2),OI.xbox.getRawAxis(3)); //Control ramps with left and right trigger for up/down
+    Robot.ramp.runRamp(OI.xbox.getRawAxis(2),OI.xbox.getRawAxis(3)); //Control ramps with left and right trigger for up/down
   }
 
   protected boolean isFinished() {

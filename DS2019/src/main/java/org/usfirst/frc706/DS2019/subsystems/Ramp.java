@@ -22,6 +22,6 @@ public class Ramp extends Subsystem {
         if (leftTrigger>=0.1) power = leftTrigger * .5; //If going down, use half power
         else if (rightTrigger>=0.1) power = rightTrigger * -1; //If going up, use full power
         rampHigh.set(ControlMode.PercentOutput,power);
-        rampLow.set(ControlMode.PercentOutput,power);
+        rampLow.set(ControlMode.PercentOutput,-power);
     }
 }
